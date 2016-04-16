@@ -1,6 +1,5 @@
 package ru.nzif.mayak_meter;
 
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -12,18 +11,10 @@ public class MainActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
-
-        //Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-
-        //Toolbar mActionBarToolbar = (Toolbar)findViewById(R.id.toolbar_actionbar);
-        //setSupportActionBar(mActionBarToolbar);
-        //requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
-        //setContentView(R.layout.activity_main);
-        //getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.my_title);
-        //setTitle("my Titele java");
+        // -- start tool bar
+        Toolbar toolbar = (Toolbar)findViewById(R.id.Tool_Bar);
+        setSupportActionBar(toolbar);
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
