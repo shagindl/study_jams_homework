@@ -6,15 +6,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity{
+public class ActivityMain extends AppCompatActivity{
+
+    private Toolbar mActionBarToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // -- start tool bar
-        Toolbar toolbar = (Toolbar)findViewById(R.id.Tool_Bar);
-        setSupportActionBar(toolbar);
+
+        mActionBarToolbar = (Toolbar) findViewById(R.id.toolbar_actionbar);
+        setSupportActionBar(mActionBarToolbar);
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
@@ -29,4 +32,3 @@ public class MainActivity extends AppCompatActivity{
         return super.onOptionsItemSelected(item);
     }
 }
-

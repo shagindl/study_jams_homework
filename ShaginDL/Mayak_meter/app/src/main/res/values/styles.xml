@@ -12,4 +12,11 @@
         <item name="windowActionBar">false</item>
     </style>
 
+    <style name="ActionBarThemeOverlay" parent="">
+        <item name="android:background">@color/toolbar_backgrnd_clr</item>
+        <item name="android:textColorPrimary">#fff</item>
+        <item name="colorControlNormal">#ffff</item>
+        <item name="colorControlHighlight">#3fff</item>
+    </style>
+
 </resources>
