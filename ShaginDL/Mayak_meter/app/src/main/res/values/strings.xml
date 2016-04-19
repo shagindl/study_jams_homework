@@ -3,4 +3,7 @@
     <!-- Menu text -->
     <string name="tollbar_Language">Язык</string>
     <string name="tollbar_settings">Настройки</string>
+    <string name="copyright">Copyright</string>
+    <string name="welcome">Welcome</string>
+    <string name="welcome_message">Tiny Stock Quotes is tiny app which allows you follow any NASDAQ stock in simple and comfortable way. It is totally free, open-source and contains no advertising. App is still in beta, so I am open to any feedback.</string>
 </resources>
