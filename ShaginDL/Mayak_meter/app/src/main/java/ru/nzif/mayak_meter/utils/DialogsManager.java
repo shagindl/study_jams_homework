@@ -52,8 +52,7 @@ public class DialogsManager {
     }
 
     public static void showWelcomeDialog(Context mContext) {
-        if (PreferencesManager.getInstance().hasBoolean(WELCOME_SHOWN))
-            return;
+        // if (PreferencesManager.getInstance().hasBoolean(WELCOME_SHOWN)) return;
         final MaterialDialog mMaterialDialog = new MaterialDialog(mContext);
         mMaterialDialog.setTitle(R.string.welcome);
         mMaterialDialog.setMessage(R.string.welcome_message);

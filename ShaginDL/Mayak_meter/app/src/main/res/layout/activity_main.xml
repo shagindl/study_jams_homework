@@ -36,6 +36,23 @@
                     android:id="@+id/lvFinanceItemsList"></com.nhaarman.listviewanimations.itemmanipulation.DynamicListView>
             </android.support.v4.widget.SwipeRefreshLayout>
 
+            <com.gc.materialdesign.views.ProgressBarCircularIndeterminate
+                android:layout_centerInParent="true"
+                android:id="@+id/pbLoadingQuotes"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:visibility="gone"
+                android:background="@color/toolbar_orange" />
+            <TextView
+                android:id="@+id/tvNoInternet"
+                android:text="@string/no_internet_connection"
+                fontPath="fonts/Roboto-Regular.ttf"
+                android:visibility="gone"
+                android:textSize="20sp"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
         </RelativeLayout>
 
     </FrameLayout>

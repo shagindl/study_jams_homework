@@ -6,5 +6,10 @@
     <color name="toolbar_backgrnd_clr">#80D756</color>
     <color name="sliding_menu_color">#FAFAFA</color>
     <color name="main_background_gray">#F4F4F4</color>
+    <color name="toolbar_orange">#FF9B00</color>
+    <color name="status_bar_orange">#F67C01</color>
+    <color name="status_bar_green">#388E3C</color>
+    <color name="status_bar_red">#D32F2F</color>
+    <color name="price_green">#4CAF50</color>
 
 </resources>
