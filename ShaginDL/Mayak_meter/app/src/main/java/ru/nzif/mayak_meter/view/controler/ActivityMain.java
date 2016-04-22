@@ -5,6 +5,7 @@ import android.os.Build;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
@@ -32,7 +33,7 @@ import ru.nzif.mayak_meter.utils.GlobalUtils;
 import ru.nzif.mayak_meter.utils.PreferencesManager;
 import ru.nzif.mayak_meter.view.controler.SlidingMenu;
 
-public class ActivityMain extends AppCompatActivity implements SearchView.OnQueryTextListener, MenuItemCompat.OnActionExpandListener, AdapterView.OnItemClickListener, SwipeRefreshLayout.OnRefreshListener, AdapterView.OnItemLongClickListener {
+public class ActivityMain extends ActionBarActivity implements SearchView.OnQueryTextListener, MenuItemCompat.OnActionExpandListener, AdapterView.OnItemClickListener, SwipeRefreshLayout.OnRefreshListener, AdapterView.OnItemLongClickListener {
     private static final int MENU_ITEM_ANIMATION_DURATION = 850;
     private static final String TOOLBAR_REMOVE_MODE_SPACES = "     ";
 
@@ -66,7 +67,6 @@ public class ActivityMain extends AppCompatActivity implements SearchView.OnQuer
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         // -- Init
         PreferencesManager.getInstance().init(getApplicationContext());
         mode = Mode.NORMAL;
@@ -74,10 +74,8 @@ public class ActivityMain extends AppCompatActivity implements SearchView.OnQuer
         mActionBarToolbar = (Toolbar) findViewById(R.id.toolbar_actionbar);
         setSupportActionBar(mActionBarToolbar);
 
-        pbLoadingQuotes = (ProgressBarCircularIndeterminate) findViewById(R.id.pbLoadingQuotes);
-        tvNoInternet = (TextView) findViewById(R.id.tvNoInternet);
         this.slidingMenu = new SlidingMenu(this);
-        try {
+        /*try {
             Field f = mActionBarToolbar.getClass().getDeclaredField(TOOLBAR_TEXTVIEW_FIELD_NAME);
             f.setAccessible(true);
             tvToolbarTitle = (TextView) f.get(mActionBarToolbar);
@@ -92,7 +90,7 @@ public class ActivityMain extends AppCompatActivity implements SearchView.OnQuer
             e.printStackTrace();
         }
         populateMainListview();
-        DialogsManager.showWelcomeDialog(this);
+        DialogsManager.showWelcomeDialog(this);*/
     }
 
     private void populateMainListview() {
@@ -175,6 +173,12 @@ public class ActivityMain extends AppCompatActivity implements SearchView.OnQuer
         return true;
     }
 
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        slidingMenu.mDrawerToggle.syncState();
+    }
+
     private void startMode(Mode modeToStart) {
         if (mode == Mode.SORT) {
             //Save order before exit sort mode
@@ -189,9 +193,9 @@ public class ActivityMain extends AppCompatActivity implements SearchView.OnQuer
             sortAbMenuItem.setVisible(false);
             searchMenuItem.setVisible(true);
             editMenuItem.setVisible(true);
-            mActionBarToolbar.setLogo(null);
-            mActionBarToolbar.setTitle(getString(R.string.app_name));
-            mActionBarToolbar.setBackgroundResource(R.color.toolbar_orange);
+            //mActionBarToolbar.setLogo(null);
+            //mActionBarToolbar.setTitle(getString(R.string.app_name));
+            //mActionBarToolbar.setBackgroundResource(R.color.toolbar_green);
             slidingMenu.mDrawerToggle.setDrawerIndicatorEnabled(true);
             slidingMenu.mDrawerLayout.setEnabled(true);
             slidingMenu.mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
@@ -216,11 +220,11 @@ public class ActivityMain extends AppCompatActivity implements SearchView.OnQuer
             editMenuItem.setVisible(false);
             microMenuItem.setVisible(false);
             sortAbMenuItem.setVisible(true);
-            mActionBarToolbar.setTitle(getString(R.string.drag_drop));
+            //mActionBarToolbar.setTitle(getString(R.string.drag_drop));
             GlobalUtils.safeAnimate(findViewById(sortAbMenuItem.getItemId()), MENU_ITEM_ANIMATION_DURATION, Techniques.FlipInX);
             GlobalUtils.safeAnimate(tvToolbarTitle, MENU_ITEM_ANIMATION_DURATION, Techniques.FlipInX);
-            mActionBarToolbar.setBackgroundResource(R.color.price_green);
-            mActionBarToolbar.setLogo(null);
+            //mActionBarToolbar.setBackgroundResource(R.color.price_green);
+            //mActionBarToolbar.setLogo(null);
             slidingMenu.mDrawerToggle.setHomeAsUpIndicator(R.drawable.abc_tab_indicator_material);
             slidingMenu.mDrawerToggle.setToolbarNavigationClickListener(new View.OnClickListener() {
                 @Override
@@ -239,11 +243,11 @@ public class ActivityMain extends AppCompatActivity implements SearchView.OnQuer
             microMenuItem.setVisible(false);
             removeMenuItem.setVisible(true);
             GlobalUtils.safeAnimate(findViewById(removeMenuItem.getItemId()), MENU_ITEM_ANIMATION_DURATION, Techniques.FlipInX);
-            mActionBarToolbar.setLogo(R.drawable.icon_toolbar_checked);
-            mActionBarToolbar.setTitle(TOOLBAR_REMOVE_MODE_SPACES + "0 " + getString(R.string.from) + " ");
+            //mActionBarToolbar.setLogo(R.drawable.icon_toolbar_checked);
+            //mActionBarToolbar.setTitle(TOOLBAR_REMOVE_MODE_SPACES + "0 " + getString(R.string.from) + " ");
             GlobalUtils.safeAnimate(tvToolbarTitle, MENU_ITEM_ANIMATION_DURATION, Techniques.FlipInX);
             GlobalUtils.safeAnimate(btnToolbarButton, MENU_ITEM_ANIMATION_DURATION, Techniques.FlipInX);
-            mActionBarToolbar.setBackgroundResource(R.color.price_red);
+            //mActionBarToolbar.setBackgroundResource(R.color.price_red);
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 Window window = getWindow();

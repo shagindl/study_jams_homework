@@ -16,6 +16,8 @@ import android.widget.ListView;
 import ru.nzif.mayak_meter.R;
 //import ru.nzif.mayak_meter.controller.SlidinMenuAdapter;
 //import ru.nzif.mayak_meter.model.SlidingMenuItem;
+import ru.nzif.mayak_meter.conroller.SlidinMenuAdapter;
+import ru.nzif.mayak_meter.model.SlidingMenuItem;
 import ru.nzif.mayak_meter.utils.DialogsManager;
 import ru.nzif.mayak_meter.utils.GlobalUtils;
 
@@ -39,11 +41,11 @@ public class SlidingMenu implements ListView.OnItemClickListener {
     };
 
 
-    public SlidingMenu(AppCompatActivity mActivity) {
+    public SlidingMenu(ActionBarActivity mActivity) {
         this.activity = mActivity;
         this.mDrawerLayout = (DrawerLayout) activity.findViewById(R.id.drawer_layout);
         this.mDrawerList = (ListView) activity.findViewById(R.id.left_drawer);
-        //this.mDrawerList.setAdapter(new SlidinMenuAdapter(activity, SlidingMenuItem.fromDefaultSlidingMenuSet(activity)));
+        this.mDrawerList.setAdapter(new SlidinMenuAdapter(activity, SlidingMenuItem.fromDefaultSlidingMenuSet(activity)));
         this.mDrawerToggle = new ActionBarDrawerToggle(activity, mDrawerLayout,
                 (Toolbar) activity.findViewById(R.id.toolbar_actionbar),
                 R.string.sliding_menu, R.string.sliding_menu) {

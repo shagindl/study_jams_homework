@@ -6,7 +6,6 @@
     <string name="copyright">Copyright</string>
     <string name="welcome">Welcome</string>
     <string name="welcome_message">Tiny Stock Quotes is tiny app which allows you follow any NASDAQ stock in simple and comfortable way. It is totally free, open-source and contains no advertising. App is still in beta, so I am open to any feedback.</string>
-    <string name="no_internet_connection">No internet connection</string>
     <string name="edit">Edit</string>
     <string name="microphone">Microphone</string>
     <string name="remove">Remove</string>
@@ -15,4 +14,13 @@
     <string name="from">from</string>
     <color name="price_red">#F44336</color>
     <string name="sliding_menu">Sliding menu</string>
+    <string name="exit">Exit</string>
+    <string name="ratee_app">Rate app</string>
+    <string name="share">Share</string>
+    <string name="feedback">Feedback</string>
+    <string name="github">GitHub</string>
+    <string name="share_text">Stock Quotes - Watch your stocks in material design way!</string>
+    <string name="send_email">Send Email</string>
+    <string name="stock_details">Stock details</string>
+    <string name="search_hint">Company name</string>
 </resources>
