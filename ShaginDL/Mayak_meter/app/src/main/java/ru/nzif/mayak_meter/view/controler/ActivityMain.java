@@ -71,10 +71,11 @@ public class ActivityMain extends AppCompatActivity implements SearchView.OnQuer
         PreferencesManager.getInstance().init(getApplicationContext());
         mode = Mode.NORMAL;
 
-        mActionBarToolbar = (Toolbar) findViewById(R.id.toolbar_actionbar);
-        setSupportActionBar(mActionBarToolbar);
+        //mActionBarToolbar = (Toolbar) findViewById(R.id.toolbar_actionbar);
+        //setSupportActionBar(mActionBarToolbar);
 
         this.slidingMenu = new SlidingMenu(this);
+
         /*try {
             Field f = mActionBarToolbar.getClass().getDeclaredField(TOOLBAR_TEXTVIEW_FIELD_NAME);
             f.setAccessible(true);

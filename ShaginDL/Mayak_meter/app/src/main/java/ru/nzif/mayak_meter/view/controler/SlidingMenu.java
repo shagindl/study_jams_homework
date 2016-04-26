@@ -62,6 +62,7 @@ public class SlidingMenu implements ListView.OnItemClickListener {
             }
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
+
         LayoutInflater inflater = LayoutInflater.from(activity);
         View footer = inflater.inflate(R.layout.lv_drawer_footer, mDrawerList, false);
         footer.setOnClickListener(exitClickListener);
