@@ -41,7 +41,7 @@ public class SlidingMenu implements ListView.OnItemClickListener {
     };
 
 
-    public SlidingMenu(ActionBarActivity mActivity) {
+    public SlidingMenu(AppCompatActivity mActivity) {
         this.activity = mActivity;
         this.mDrawerLayout = (DrawerLayout) activity.findViewById(R.id.drawer_layout);
         this.mDrawerList = (ListView) activity.findViewById(R.id.left_drawer);
@@ -81,14 +81,7 @@ public class SlidingMenu implements ListView.OnItemClickListener {
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         mDrawerLayout.closeDrawer(mDrawerList);
         SlidingMenuItem clickedItem = (SlidingMenuItem) (mDrawerList.getItemAtPosition(position));
-        if (clickedItem.title.equals(activity.getString(R.string.share))) {
-            Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-            sharingIntent.setType("text/plain");
-            sharingIntent.putExtra(Intent.EXTRA_TEXT, activity.getString(R.string.share_text) + " " + GlobalUtils.buildGooglePlayLink(activity));
-            activity.startActivity(Intent.createChooser(sharingIntent, activity.getString(R.string.share)));
-        } else if (clickedItem.title.equals(activity.getString(R.string.ratee_app))) {
-            activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + activity.getPackageName())));
-        } else if (clickedItem.title.equals(activity.getString(R.string.copyright))) {
+        if (clickedItem.title.equals(activity.getString(R.string.copyright))) {
             DialogsManager.showCopyrightDialog(activity);
         } else if (clickedItem.title.equals(activity.getString(R.string.feedback))) {
             Intent intent = new Intent(Intent.ACTION_SEND);

@@ -1,6 +1,7 @@
 package ru.nzif.mayak_meter.utils;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.text.Html;
 import android.view.View;
 
@@ -29,13 +30,18 @@ public class DialogsManager {
         allLibreries.put("NineOldAndroids", "https://github.com/JakeWharton/NineOldAndroids/");
         allLibreries.put("MPAndroidChart", "https://github.com/PhilJay/MPAndroidChart");
         allLibreries.put("AndroidViewAnimations", "https://github.com/daimajia/AndroidViewAnimations");
-
+        allLibreries.put("KKorvin/TinyStockQuotes", "https://github.com/KKorvin/TinyStockQuotes.git");
     }
 
     public static void showCopyrightDialog(Context mContext) {
         StringBuilder stringBuilder = new StringBuilder("<b>Open source libraries:</b><br>");
-        for (Map.Entry<String, String> entry : allLibreries.entrySet()) {
-            stringBuilder.append("<a href='" + entry.getValue() + "'" + ">" + entry.getKey() + "<a><br>");
+        String del_orient = "<br>";
+
+        if(mContext.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+            del_orient = ", ";
+        }
+        for(Map.Entry<String, String> entry : allLibreries.entrySet()) {
+            stringBuilder.append("<a href='" + entry.getValue() + "'" + ">" + entry.getKey() + "<a>" + del_orient);
         }
         stringBuilder.append("<br><b>Free icons:</b><br>");
         stringBuilder.append("<a href='http://icons8.com/android-L/'" + ">icons8<a>");

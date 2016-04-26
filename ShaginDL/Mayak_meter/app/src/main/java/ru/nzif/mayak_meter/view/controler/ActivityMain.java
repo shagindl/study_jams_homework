@@ -33,7 +33,7 @@ import ru.nzif.mayak_meter.utils.GlobalUtils;
 import ru.nzif.mayak_meter.utils.PreferencesManager;
 import ru.nzif.mayak_meter.view.controler.SlidingMenu;
 
-public class ActivityMain extends ActionBarActivity implements SearchView.OnQueryTextListener, MenuItemCompat.OnActionExpandListener, AdapterView.OnItemClickListener, SwipeRefreshLayout.OnRefreshListener, AdapterView.OnItemLongClickListener {
+public class ActivityMain extends AppCompatActivity implements SearchView.OnQueryTextListener, MenuItemCompat.OnActionExpandListener, AdapterView.OnItemClickListener, SwipeRefreshLayout.OnRefreshListener, AdapterView.OnItemLongClickListener {
     private static final int MENU_ITEM_ANIMATION_DURATION = 850;
     private static final String TOOLBAR_REMOVE_MODE_SPACES = "     ";
 
